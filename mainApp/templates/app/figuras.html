@@ -1,0 +1,26 @@
+{% extends 'app/base.html' %}
+{%load static%}
+
+{%block css%}
+<link rel="stylesheet" href="{%static 'css/base.css'%}">
+<link rel="stylesheet" href="{%static 'css/figuras.css'%}">
+{%endblock css%}
+{%block contenido%}
+{%load humanize%}
+{%load static%}
+<div class="container-card">
+    {% for figura in figuras %}
+    <div class="card">
+        <figure>
+            <img src="{{ figura.imagen.url }}">
+        </figure>
+        <div class="contenido-card">
+            <p>{{figura.fabricante}}</p>
+            <h3>{{ figura.nombre }}</h3>
+            <p>${{ figura.precio| intcomma }}</p>
+            <a href="{%url 'VerFigura' figura.id%}">Ver Figura</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{%endblock contenido%}

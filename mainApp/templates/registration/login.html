@@ -1,0 +1,31 @@
+{% extends 'app/base.html' %}
+
+{%load static%}
+{%block css%}
+<link rel="stylesheet" href="{%static 'css/base.css'%}">
+<link rel="stylesheet" href="{%static 'css/logIn.css'%}">
+{%endblock css%}
+
+{%block contenido%}
+{%load crispy_forms_tags%}
+{%load static%}
+<br>
+<div class="container">
+    <div class="col-12 col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h2>Iniciar Sesión</h2>
+                <hr>
+                <form action="" method="post">
+                    {%csrf_token%}
+                    {{form|crispy}}
+                    <a href="{%url 'IsekaiStore'%}">Volver al inicio</a> |
+                    <a href="{%url 'SigIn'%}">Crear cuenta</a>
+                    <input type="submit" value="Ingresar" class="btn btn-success float-right">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+{%endblock contenido%}

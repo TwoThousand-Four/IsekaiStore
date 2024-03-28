@@ -1,0 +1,28 @@
+{% extends 'app/base.html' %}
+{%load static%}
+
+{%block css%}
+<link rel="stylesheet" href="{%static 'css/base.css'%}">
+<link rel="stylesheet" href="{%static 'css/origenes.css'%}">
+{%endblock css%}
+
+{%block contenido%}
+{%load static%}
+<div class="container origenes">
+    <div class="origen">
+        <p>Estos son los origenes de las figuras que tenemos en stock :D</p>        
+    </div>
+</div>
+<div class="container-card">
+    {% for origen in origenes %}
+    <div class="card">
+        <figure>
+            <img src="{{ origen.imagen.url }}">
+        </figure>
+        <div class="contenido-card">
+            <h3>{{origen.nombre}}</h3>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{%endblock contenido%}
